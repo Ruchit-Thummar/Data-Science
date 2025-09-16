@@ -56,32 +56,32 @@ add column subgenre varchar(200)
 add column authoredby varchar(100)
     generated always as (
         case
-            when `desc` like '%"authored by"=>"%' 
-            then trim(substring_index(substring_index(`desc`, '"authored by"=>"', -1), '"', 1))
+            when `desc` like '%"Authored By"=>"%' 
+            then trim(substring_index(substring_index(`desc`, '"Authored By"=>"', -1), '"', 1))
             else 'not provided'end
     ) stored,
 
 add column language varchar(50)
     generated always as (
         case
-            when `desc` like '%"language"=>"%' 
-            then trim(substring_index(substring_index(`desc`, '"language"=>"', -1), '"', 1))
+            when `desc` like '%"Language"=>"%' 
+            then trim(substring_index(substring_index(`desc`, '"Language"=>"', -1), '"', 1))
             else 'not provided'end
     ) stored,
 
 add column publicationyear varchar(50)
     generated always as (
         case
-            when `desc` like '%"publication year"=>"%' 
-            then trim(substring_index(substring_index(`desc`, '"publication year"=>"', -1), '"', 1))
+            when `desc` like '%"Publication Year"=>"%' 
+            then trim(substring_index(substring_index(`desc`, '"Publication Year"=>"', -1), '"', 1))
             else 'not provided'end
     ) stored,
 
 add column publishername varchar(150)
     generated always as (
         case
-            when `desc` like '%"publisher name"=>"%' 
-            then trim(substring_index(substring_index(`desc`, '"publisher name"=>"', -1), '"', 1))
+            when `desc` like '%"Publisher Name"=>"%' 
+            then trim(substring_index(substring_index(`desc`, '"Publisher Name"=>"', -1), '"', 1))
             else 'not provided'end
     ) stored;
 
@@ -110,7 +110,7 @@ where genre not in (
 SET SQL_SAFE_UPDATES = 0;
 
 -- make a 1 table of all usefull colums 
-use db111;
+
 select * from books;
 create view books_view as
 select 
